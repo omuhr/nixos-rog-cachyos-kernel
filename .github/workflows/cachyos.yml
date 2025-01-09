@@ -34,6 +34,8 @@ jobs:
 
       - run: nix-channel --add https://nixos.org/channels/${{ matrix.channel }} nixos
 
+      - run: nix-channel --update
+
       - uses: cachix/cachix-action@v15
         with:
           name: drakon64-nixos-cachyos-kernel
