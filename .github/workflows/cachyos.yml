@@ -13,23 +13,18 @@ jobs:
   build:
     strategy:
       matrix:
-        architecture:
-          - system: x86_64-linux
-            runner: ubuntu-latest
-          - system: aarch64-linux
-            runner: [ linux, ARM64, ktisis, ktisis-c4a-standard-4 ]
         channel:
           - nixos-24.11
           - nixos-unstable
 
-    name: Build - ${{ matrix.channel }} - ${{ matrix.architecture.system }}
-    runs-on: ${{ matrix.architecture.runner }}
+    name: Build - ${{ matrix.channel }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: DeterminateSystems/nix-installer-action@v16
         with:
-          source-url: https://install.lix.systems/lix/lix-installer-${{ matrix.architecture.system }}
+          source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
           diagnostic-endpoint: ""
 
       - uses: cachix/cachix-action@v15
