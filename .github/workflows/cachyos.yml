@@ -34,4 +34,4 @@ jobs:
           name: drakon64-nixos-cachyos-kernel
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix build
+      - run: nix-build
