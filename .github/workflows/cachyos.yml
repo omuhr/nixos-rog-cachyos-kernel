@@ -18,8 +18,11 @@ jobs:
             runner: ubuntu-latest
           #- system: aarch64-linux
           #  runner: [ linux, ARM64, ktisis, ktisis-c4a-standard-4 ]
+        channel:
+          - nixos-24.11
+          - nixos-unstable
 
-    name: Build - ${{ matrix.architecture.system }}
+    name: Build - ${{ matrix.channel }} - ${{ matrix.architecture.system }}
     runs-on: ${{ matrix.architecture.runner }}
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +31,8 @@ jobs:
         with:
           source-url: https://install.lix.systems/lix/lix-installer-${{ matrix.architecture.system }}
           diagnostic-endpoint: ""
+
+      - run: nix-channel --add https://nixos.org/channels/${{ matrix.channel }} nixos
 
       - uses: cachix/cachix-action@v15
         with:
