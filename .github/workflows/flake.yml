@@ -2,11 +2,11 @@ name: Flake
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
-  update:
+  flake:
     name: Flake Update
     runs-on: ubuntu-latest
     permissions:
@@ -18,8 +18,7 @@ jobs:
 
       - uses: DeterminateSystems/nix-installer-action@v16
 
-      - id: update-flake-lock
-        uses: DeterminateSystems/update-flake-lock@v24
+      - uses: DeterminateSystems/update-flake-lock@v24
         with:
           commit-msg: 'flake: update inputs'
           pr-title: 'flake: update inputs'
