@@ -7,6 +7,9 @@ on:
       - "**.nix"
       - .github/workflows/cachyos.yml
 
+  schedule:
+    - cron: '0 0 * * *'
+
   workflow_dispatch:
 
 jobs:
