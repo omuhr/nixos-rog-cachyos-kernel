@@ -35,8 +35,8 @@ buildLinux {
 
     HZ_PERIODIC = no;
     NO_HZ_IDLE = no;
-    CONTEXT_TRACKING_FORCE = no;
-    NO_HZ_FULL_NODEF = yes;
+    #CONTEXT_TRACKING_FORCE = no;
+    #NO_HZ_FULL_NODEF = yes;
     NO_HZ_FULL = yes;
     NO_HZ = yes;
     NO_HZ_COMMON = yes;
