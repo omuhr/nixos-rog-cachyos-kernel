@@ -2,7 +2,7 @@
   callPackage,
   fetchurl,
   stdenv,
-  linuxPackages,
+  linuxPackages_6_6,
 }:
 let
   sources = callPackage ./sources.nix { };
@@ -27,7 +27,7 @@ stdenv.mkDerivation {
     cp -r --reflink=auto ${sources.linux} ${srcName}
     chmod -R u=rwX,g=rX,o=rX ${srcName}
 
-    cp --reflink=auto ${linuxPackages.kernel.configfile} config
+    cp --reflink=auto ${linuxPackages_6_6.kernel.configfile} config
     touch ${srcName}/.config
     chmod u=rw,g=r,o=r ${srcName}/.config
 
