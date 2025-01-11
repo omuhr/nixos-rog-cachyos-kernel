@@ -4,7 +4,10 @@ on:
     branches:
       - main
     paths:
-      - "**.nix"
+      - default.nix
+      - cachyos/config.nix
+      - cachyos/package.nix
+      - cachyos/sources.nix
       - .github/workflows/cachyos.yml
 
   schedule:
