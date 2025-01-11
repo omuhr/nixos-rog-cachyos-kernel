@@ -1,11 +1,12 @@
-{ callPackage, buildLinux }:
+{ callPackage, linuxManualConfig }:
 let
   sources = callPackage ./sources.nix { };
 in
-buildLinux {
+linuxManualConfig {
   src = sources.linux;
-  version = sources.linuxVersion;
-  structuredExtraConfig = (callPackage ./config.nix { }).config;
+  version = "${sources.linuxVersion}-cachyos-lts";
+  modDirVersion = sources.linuxVersion;
+  configfile = ./config;
 
   kernelPatches = [
     {
