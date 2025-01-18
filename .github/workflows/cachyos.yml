@@ -38,6 +38,9 @@ jobs:
           name: drakon64-nixos-cachyos-kernel
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build
+      - run: nix-build -A linuxPackages_cachyos
         env:
           NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/${{ matrix.channel }}.tar.gz
+
+      - run: cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }} "$(nix-instantiate --eval --expr -A linuxPackages_cachyos)" --keep-revisions 1
+        if: ${{ github.ref == 'refs/heads/main' }}
