@@ -1,4 +1,9 @@
-{ callPackage, buildLinux, ... }:
+{
+  callPackage,
+  stdenvNoCC,
+  buildLinux,
+  ...
+}:
 let
   sources = callPackage ./sources.nix { };
 in
@@ -19,4 +24,6 @@ buildLinux {
       patch = sources.bore-cachy;
     }
   ];
+
+  meta.broken = stdenvNoCC.hostPlatform.isAarch64;
 }
