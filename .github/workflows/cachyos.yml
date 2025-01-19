@@ -33,11 +33,13 @@ jobs:
           source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
           diagnostic-endpoint: ""
 
+      - run: |
+          nix-channel --add https://nixos.org/channels/${{ matrix.channel }} nixpkgs
+          nix-channel --update
+
       - uses: cachix/cachix-action@v15
         with:
           name: drakon64-nixos-cachyos-kernel
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }} $(cachix watch-exec drakon64-nixos-cachyos-kernel -- nix-build -A linuxPackages_cachyos)
-        env:
-          NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/${{ matrix.channel }}.tar.gz
+      - run: cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }} $(cachix watch-exec drakon64-nixos-cachyos-kernel -- nix-build -A linuxPackages_cachyos) --keep-revisions 1
