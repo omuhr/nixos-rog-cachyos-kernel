@@ -13,7 +13,7 @@ let
   boreHash = "sha256-Tz7yxrwo3kzd2J/BvX3HEQmVcMD2ILxFXvY/d46iB7I=";
 in
 {
-  inherit linuxVersion;
+  inherit linuxVersion linuxMinorVersion;
 
   linux = fetchzip {
     url = "mirror://kernel/linux/kernel/v${lib.versions.major linuxVersion}.x/linux-${linuxVersion}.tar.xz";

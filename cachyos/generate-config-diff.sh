@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/sh -e
 
-diff $(nix-build ../default.nix -A generateConfig)/config $(nix build --print-out-paths --no-link nixpkgs#linuxPackages_6_6.kernel.configfile) > config.diff
+$(nix-build '<nixpkgs>' -A diffutils)/bin/diff $(nix-build ../default.nix -A kernelConfig) $(nix-build ../default.nix -A generateConfig)/config > config.diff

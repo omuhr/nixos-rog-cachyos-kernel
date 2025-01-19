@@ -1,19 +1,19 @@
 {
   callPackage,
   fetchurl,
-  stdenv,
-  linuxPackages_6_6,
+  kernelConfig,
+  stdenvNoCC,
 }:
 let
   sources = callPackage ./sources.nix { };
   srcName = "linux-${sources.linuxVersion}";
 
   pkgbuild = fetchurl {
-    url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/9c072e702f18be25ef989d65c346e714bd046f5e/linux-cachyos-lts/PKGBUILD";
-    hash = "sha256-Lu4ZQJCahxY5GKf5rmXMVK8QRO5BNfz/W0iuCwF5Fv0=";
+    url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/f2de7fe64a97b57f57fe3fecfdd655c9bb488bdc/linux-cachyos-lts/PKGBUILD";
+    hash = "sha256-EEuA1J57F6R/y/Xw5+9yWwnvs3wuyJdDBsp8lW5bVTU=";
   };
 in
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   name = "config";
   src = null;
 
@@ -27,7 +27,7 @@ stdenv.mkDerivation {
     cp -r --reflink=auto ${sources.linux} ${srcName}
     chmod -R u=rwX,g=rX,o=rX ${srcName}
 
-    cp --reflink=auto ${linuxPackages_6_6.kernel.configfile} config
+    cp --reflink=auto ${kernelConfig} config
     touch ${srcName}/.config
     chmod u=rw,g=r,o=r ${srcName}/.config
 
