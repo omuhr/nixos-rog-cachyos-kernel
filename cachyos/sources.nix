@@ -4,8 +4,8 @@
   fetchpatch,
 }:
 let
-  linuxVersion = "6.6.69";
-  linuxHash = "sha256-nCla3GbDxPy56r5K1HOpyAJ+8YyE792z5a4eH5I1S7s=";
+  linuxVersion = "6.6.72";
+  linuxHash = "sha256-QoHqqGLo+tFYde7aB2tEkTc2b9kkrQigNeM3A4ikKg0=";
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
 
   cachyosCommit = "7ed2c2912029bc74b8276b7922164d7b538caea9";
