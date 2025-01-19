@@ -73,3 +73,6 @@ In your `flake.nix` file:
 Finally, run `sudo nixos-rebuild boot` and reboot into the new kernel.
 
 ## Credits
+
+* The CachyOS Team for providing the patches and PKGBUILD that this package uses
+* [niklaskorz](https://github.com/niklaskorz/) and [NotAShelf](https://github.com/NotAShelf/) for explaining Linux kernel packaging with Nix to me
