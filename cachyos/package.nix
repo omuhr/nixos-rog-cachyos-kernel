@@ -25,5 +25,5 @@ buildLinux {
     }
   ];
 
-  meta.broken = stdenvNoCC.hostPlatform.isAarch64;
+  meta.broken = ! stdenvNoCC.hostPlatform.isx86_64;
 }
