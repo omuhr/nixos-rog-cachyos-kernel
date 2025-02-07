@@ -4,14 +4,13 @@
   fetchpatch,
 }:
 let
-  linuxVersion = "6.12.10";
+  linuxVersion = "6.12.12";
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
-  linuxHash = "sha256-3YIRaCn/cMkp9h2GXZgsZHHh6F59LfendPqnwawpQ4E=";
+  linuxHash = "sha256-UJb5asZFIhnp8YbTM9tok5g3KIFU2mlLKzg6pIap5Es=";
 
-  cachyosCommit = "f5bbf91fc68f0afb0e5a9d9ccfa15dc9d8015f75";
+  cachyosCommit = "3216bcc085f66090b5a9c891e16b8516c6760856";
 
-  cachyosHash = "sha256-5mliK00yNMT0D3lO6v84EEsJDVlxWXgtXbj5XSBkPd0=";
-  dkmsClangHash = "sha256-2QhyC7DGOw9SmPsxvFweHeeeXKh/Gr0heLgs36lmwmM=";
+  cachyosHash = "sha256-ziozxudbN53sFg0JaNfft7ukha1k6bnieq1Zl9qDLII=";
   boreHash = "sha256-f9zyXVYJvuOVOzohUPIrzqXCVMyFoOE9UubBxrZfXP8=";
 in
 {

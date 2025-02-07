@@ -16,9 +16,9 @@ buildLinux {
   structuredExtraConfig = with lib.kernel; {
     # 0001-cachyos-base-all.patch
     AMD_3D_VCACHE = yes;
-    ARCH_SUPPORTS_AUTOFDO_CLANG = yes;
+    #ARCH_SUPPORTS_AUTOFDO_CLANG = yes;
     AUTOFDO_CLANG = unset;
-    ARCH_SUPPORTS_PROPELLER_CLANG = yes;
+    #ARCH_SUPPORTS_PROPELLER_CLANG = yes;
     PROPELLER_CLANG = unset;
     AMD_PRIVATE_COLOR = yes;
     V4L2_LOOPBACK = module;
