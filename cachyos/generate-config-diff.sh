@@ -1,5 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
 
-$(nix-build '<nixpkgs>' -A diffutils)/bin/diff $(nix-build ../default.nix -A kernelConfig) $(nix-build ../default.nix -A generateConfig)/config > config.diff
+nix-shell -p diffutils --run "diff $(nix-build ../default.nix -A kernelConfig) $(nix-build ../default.nix -A generateConfig)/config" > config.diff
 
-./generate-config.py
+nix-shell -p python3Minimal --run "./generate-config.py"
