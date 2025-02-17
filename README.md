@@ -21,12 +21,6 @@ nix.settings = {
 
 then run `sudo nixos-rebuild switch` to update your Nix config.
 
-Following this, you can then add the kernel to your NixOS config like so:
-
-```nix
-boot.kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
-```
-
 ### Adding the input
 
 This repository must then be added as an input to your config:
@@ -69,6 +63,12 @@ In your `flake.nix` file:
 ```
 
 ### Rebuilding the system
+
+Following this, you can then add the kernel to your NixOS config like so:
+
+```nix
+boot.kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
+```
 
 Finally, run `sudo nixos-rebuild boot` and reboot into the new kernel.
 
