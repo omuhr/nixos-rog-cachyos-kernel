@@ -9,8 +9,8 @@ let
   srcName = "linux-${sources.linuxVersion}";
 
   pkgbuild = fetchurl {
-    url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/590396dcc62019c625349c86e21521058f31248d/linux-cachyos-lts/PKGBUILD";
-    hash = "sha256-4ZHCXLj1WSSGp1Do6VWdZrsPTzLVw14WIjpkACI7Fmk=";
+    url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/e3e837d296209ffc6b8f275c11059eb65afcd112/linux-cachyos-lts/PKGBUILD";
+    hash = "sha256-t/kt088kL1Kc8rwFEUmFQ6Le8tY51EOotSMtF7seqZI=";
   };
 in
 stdenvNoCC.mkDerivation {
