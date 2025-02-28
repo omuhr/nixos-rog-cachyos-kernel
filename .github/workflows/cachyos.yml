@@ -23,7 +23,7 @@ jobs:
           - nixos-unstable
 
     name: Build - ${{ matrix.channel }}
-    runs-on: [linux, x64, ktisis, ktisis-c3d-highcpu-4, ktisis-50GB]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -41,4 +41,39 @@ jobs:
           name: drakon64-nixos-cachyos-kernel
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }} $(cachix watch-exec drakon64-nixos-cachyos-kernel -- nix-build -A linuxPackages_cachyos) --keep-revisions 1
+      - name: Configure nixbuild.net SSH private key
+        run: |
+          sudo touch /root/.ssh/nixbuild
+          sudo chmod 0600 /root/.ssh/nixbuild
+          echo "$NIXBUILD_SSH_KEY" | sudo tee /root/.ssh/nixbuild > /dev/null
+        env:
+          NIXBUILD_SSH_KEY: ${{ secrets.NIXBUILD_SSH_KEY }}
+
+
+      - name: Configure OpenSSH for nixbuild.net
+        run: |
+          sudo touch /root/.ssh/ssh_config
+          sudo chmod 0600 /root/.ssh/ssh_config
+          echo "Host eu.nixbuild.net
+            PubkeyAcceptedKeyTypes ssh-ed25519
+            ServerAliveInterval 60
+            IPQoS throughput
+            IdentityFile /root/.ssh/nixbuild
+            SetEnv NIXBUILDNET_SUBSTITUTERS=https://cache.nixos.org,https://drakon64-nixos-cachyos-kernel.cachix.org NIXBUILDNET_TRUSTED_PUBLIC_KEYS=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=,drakon64-nixos-cachyos-kernel.cachix.org-1:J3gjZ9N6S05pyLA/P0M5y7jXpSxO/i0rshrieQJi5D0=" | sudo tee -a /root/.ssh/config
+          
+          sudo touch /root/.ssh/known_hosts
+          sudo chmod 0600 /root/.ssh/known_hosts
+          echo "eu.nixbuild.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPIQCZc54poJ8vqawd8TraNryQeJnvH1eLpIDgbiqymM" | sudo tee -a /root/.ssh/known_hosts
+#        env:
+#          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+#            SetEnv NIXBUILDNET_SUBSTITUTERS=https://cache.nixos.org,https://drakon64-nixos-cachyos-kernel.cachix.org NIXBUILDNET_TRUSTED_PUBLIC_KEYS=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=,drakon64-nixos-cachyos-kernel.cachix.org-1:J3gjZ9N6S05pyLA/P0M5y7jXpSxO/i0rshrieQJi5D0= NIXBUILDNET_CACHES=cachix://drakon64-nixos-cachyos-kernel NIXBUILDNET_ACCESS_TOKENS=cachix://drakon64-nixos-cachyos-kernel=WRITE:$CACHIX_AUTH_TOKEN" | sudo tee -a /root/.ssh/config > /dev/null
+
+      - name: Configure Nix for nixbuild.net
+        run: echo "builders-use-substitutes = true" | sudo tee -a /etc/nix/nix.conf
+
+      - run: cachix watch-exec drakon64-nixos-cachyos-kernel -- nix-build -A linuxPackages_cachyos --builders "ssh://eu.nixbuild.net x86_64-linux - 100 1 big-parallel,benchmark"
+
+      - run: |
+          cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }}.out $(nix-build -A linuxPackages_cachyos.out) --keep-revisions 1
+          cachix pin drakon64-nixos-cachyos-kernel ${{ matrix.channel }}.dev $(nix-build -A linuxPackages_cachyos.dev) --keep-revisions 1
