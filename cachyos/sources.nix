@@ -8,7 +8,7 @@ let
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
   linuxHash = "sha256-9Uq2kgoSe42EPUEwlEP2ai8c8VFl+aZ/DTPrwBHagyY=";
 
-  cachyosCommit = "934066f8d45279f6ffd38e7e63542d9312c63556";
+  cachyosCommit = "0f5dad7df79e904e8a6d752aa2ed71b6e3b7de75";
 
   cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
   boreHash = "sha256-f9zyXVYJvuOVOzohUPIrzqXCVMyFoOE9UubBxrZfXP8=";
