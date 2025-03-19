@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import re
 
 old_regex = re.compile(r"< CONFIG_|< # CONFIG_")
