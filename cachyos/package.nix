@@ -27,6 +27,8 @@ buildLinux {
     CC_OPTIMIZE_FOR_PERFORMANCE = lib.mkForce (unset);
     TRANSPARENT_HUGEPAGE_ALWAYS = lib.mkForce (yes);
     TRANSPARENT_HUGEPAGE_MADVISE = lib.mkForce (unset);
+    CACHY = yes;
+    SCHED_BORE = yes;
     CONTEXT_TRACKING_FORCE = unset;
     #NO_HZ_FULL_NODEF = yes;
     PREEMPT_LAZY = unset;
