@@ -37,7 +37,7 @@ in {
   };
   amd-tlb-broadcast = fetchpatch {
     url =
-      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0002-amd-tlb-broadcast.pa";
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0002-amd-tlb-broadcast.patch";
     hash = amd-tlb-broadcastHash;
   };
   asus = fetchpatch {
