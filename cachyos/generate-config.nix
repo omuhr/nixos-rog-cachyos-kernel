@@ -1,27 +1,22 @@
-{
-  callPackage,
-  fetchurl,
-  kernelConfig,
-  stdenvNoCC,
-}:
+{ callPackage, fetchurl, kernelConfig, stdenvNoCC, }:
 let
   sources = callPackage ./sources.nix { };
   srcName = "linux-${sources.linuxVersion}";
 
+  # pkgbuild = fetchurl {
+  #   url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/c2c0e37f988e56878b930a0ad14830e9e2387b0d/linux-cachyos-lts/PKGBUILD";
+  #   hash = "sha256-JRbGj0E3463WIuEcDh+Mh0y3cJi1nEAuWFJZcowIvOU=";
+  # };
   pkgbuild = fetchurl {
-    url = "https://raw.githubusercontent.com/CachyOS/linux-cachyos/c2c0e37f988e56878b930a0ad14830e9e2387b0d/linux-cachyos-lts/PKGBUILD";
-    hash = "sha256-JRbGj0E3463WIuEcDh+Mh0y3cJi1nEAuWFJZcowIvOU=";
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-linux-kermit/454a1ad19bb2a223d77f250fa7006477351e26c2/linux-cachyos/PKGBUILD";
+    hash = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
   };
-in
-stdenvNoCC.mkDerivation {
+in stdenvNoCC.mkDerivation {
   name = "config";
   src = null;
 
-  phases = [
-    "unpackPhase"
-    "configurePhase"
-    "installPhase"
-  ];
+  phases = [ "unpackPhase" "configurePhase" "installPhase" ];
 
   unpackPhase = ''
     cp -r --reflink=auto ${sources.linux} ${srcName}
