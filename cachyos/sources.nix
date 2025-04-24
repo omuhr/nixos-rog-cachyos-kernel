@@ -12,9 +12,9 @@ let
   amd-tlb-broadcastHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
   asusHash = "sha256-vpKsaVIu89z7WlUb/yqNjp4CRtjvxjQZyho7dEJpqWA=";
   bbr3Hash = "sha256-zVhvUS5aO/sJxJiKzRFFVH1rfD7hTCw5CMg5kVr9R64=";
-  cachyHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  cachyHash = "sha256-mmywMawcGMagOj+GoG1IHGi0R9ORWma3+Nr7ba5YkUY=";
   cryptoHash = "sha256-yPfrx3HWVyLeBVa+/vZEsGfVdt5/lRWGINYfa0cUpE8=";
-  fixesHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  fixesHash = "sha256-uc/ixwYvNRW0WjLDKS8Ebr+Y4nWF/z2ri2Q1MTXYrP0=";
   t2Hash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
   zstdHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
   zotac-zoneHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
