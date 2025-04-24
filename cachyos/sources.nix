@@ -2,7 +2,7 @@
 let
   linuxVersion = "6.14.3";
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
-  linuxHash = "sha256-CItjO1ZoQKzkleD5O4k7cTn9YGWGQ2rNoLHZBfZ3ufI=";
+  linuxHash = "sha256-bMq/VKT4CyJFjAnwXqz3+SsiBNroflILYw6HRN+F92I=";
 
   cachyosCommit = "4df02d6037a2ea9ac1dc67f80db59798117694f1";
 
