@@ -10,7 +10,7 @@ let
   pkgbuild = fetchurl {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-linux-kermit/454a1ad19bb2a223d77f250fa7006477351e26c2/linux-cachyos/PKGBUILD";
-    hash = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    hash = c;
   };
 in stdenvNoCC.mkDerivation {
   name = "config";
