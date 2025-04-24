@@ -1,6 +1,6 @@
 { lib, fetchzip, fetchpatch, }:
 let
-  linuxVersion = "6.14.3";
+  linuxVersion = "6.14.2";
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
   linuxHash = "sha256-bMq/VKT4CyJFjAnwXqz3+SsiBNroflILYw6HRN+F92I=";
 
