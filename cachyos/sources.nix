@@ -15,7 +15,7 @@ let
   cachyHash = "sha256-mmywMawcGMagOj+GoG1IHGi0R9ORWma3+Nr7ba5YkUY=";
   cryptoHash = "sha256-yPfrx3HWVyLeBVa+/vZEsGfVdt5/lRWGINYfa0cUpE8=";
   fixesHash = "sha256-uc/ixwYvNRW0WjLDKS8Ebr+Y4nWF/z2ri2Q1MTXYrP0=";
-  t2Hash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  t2Hash = "sha256-1Ay/0/CIqiYQUlBT7j7Vtel7pabJpR3yIeNcCSAyiDk=";
   zstdHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
   zotac-zoneHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
 
