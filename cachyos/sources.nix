@@ -9,7 +9,7 @@ let
   # cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
 
   amd-pstateHash = "sha256-rwDe33RDqBTwyrWT60odwXJheb0yMDG/AOAp0bT9keo=";
-  amd-tlb-broadcastHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  amd-tlb-broadcastHash = "sha256-B0fwTLBFYcMEiVWuot6OuFEBj9vqdOqVxau9IPqeyCE=";
   asusHash = "sha256-vpKsaVIu89z7WlUb/yqNjp4CRtjvxjQZyho7dEJpqWA=";
   bbr3Hash = "sha256-zVhvUS5aO/sJxJiKzRFFVH1rfD7hTCw5CMg5kVr9R64=";
   cachyHash = "sha256-mmywMawcGMagOj+GoG1IHGi0R9ORWma3+Nr7ba5YkUY=";
