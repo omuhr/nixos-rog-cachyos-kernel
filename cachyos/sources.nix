@@ -1,33 +1,89 @@
-{
-  lib,
-  fetchzip,
-  fetchpatch,
-}:
+{ lib, fetchzip, fetchpatch, }:
 let
-  linuxVersion = "6.12.21";
+  linuxVersion = "6.14.3";
   linuxMinorVersion = lib.versions.majorMinor linuxVersion;
   linuxHash = "sha256-CItjO1ZoQKzkleD5O4k7cTn9YGWGQ2rNoLHZBfZ3ufI=";
 
-  cachyosCommit = "31cccbc041cbd1b9907a22464ebdcce80ffc799f";
+  cachyosCommit = "4df02d6037a2ea9ac1dc67f80db59798117694f1";
 
-  cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  # cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+
+  amd-pstateHash = lib.fakeSha256;
+  amd-tlb-broadcasttchHash = lib.fakeSha256;
+  asusHash = lib.fakeSha256;
+  bbr3Hash = lib.fakeSha256;
+  cachyHash = lib.fakeSha256;
+  cryptoHash = lib.fakeSha256;
+  fixesHash = lib.fakeSha256;
+  t2Hash = lib.fakeSha256;
+  zstdHash = lib.fakeSha256;
+  zotac-zoneHash = lib.fakeSha256;
+
   boreHash = "sha256-uhuso01DVwuWO26z9Q9xf4TfGSmZOXkqZi4AvIjHCUY=";
-in
-{
+in {
   inherit linuxVersion linuxMinorVersion;
 
   linux = fetchzip {
-    url = "mirror://kernel/linux/kernel/v${lib.versions.major linuxVersion}.x/linux-${linuxVersion}.tar.xz";
+    url = "mirror://kernel/linux/kernel/v${
+        lib.versions.major linuxVersion
+      }.x/linux-${linuxVersion}.tar.xz";
     hash = linuxHash;
   };
 
-  cachyos-base-all = fetchpatch {
-    url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyosCommit}/${linuxMinorVersion}/all/0001-cachyos-base-all.patch";
-    hash = cachyosHash;
+  amd-pstate = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0001-amd-pstate.patch";
+    hash = amd-pstateHash;
+  };
+  amd-tlb-broadcast = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0002-amd-tlb-broadcast.pa";
+    hash = amd-tlb-broadcasttchHash;
+  };
+  asus = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0003-asus.patch";
+    hash = asusHash;
+  };
+  bbr3 = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0004-bbr3.patch";
+    hash = bbr3Hash;
+  };
+  cachy = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0005-cachy.patch";
+    hash = cachyHash;
+  };
+  crypto = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0006-crypto.patch";
+    hash = cryptoHash;
+  };
+  fixes = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0007-fixes.patch";
+    hash = fixesHash;
+  };
+  t2 = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0008-t2.patch";
+    hash = t2Hash;
+  };
+  zstd = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0009-zstd.patch";
+    hash = zstdHash;
+  };
+  zotac-zone = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0010-zotac-zone.patch";
+    hash = zotac-zoneHash;
   };
 
   bore-cachy = fetchpatch {
-    url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyosCommit}/${linuxMinorVersion}/sched/0001-bore-cachy.patch";
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/sched/0001-bore-cachy.patch";
     hash = boreHash;
   };
 }
