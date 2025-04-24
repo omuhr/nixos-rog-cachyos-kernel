@@ -8,16 +8,16 @@ let
 
   # cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
 
-  amd-pstateHash = lib.fakeSha256;
-  amd-tlb-broadcasttchHash = lib.fakeSha256;
-  asusHash = lib.fakeSha256;
-  bbr3Hash = lib.fakeSha256;
-  cachyHash = lib.fakeSha256;
-  cryptoHash = lib.fakeSha256;
-  fixesHash = lib.fakeSha256;
-  t2Hash = lib.fakeSha256;
-  zstdHash = lib.fakeSha256;
-  zotac-zoneHash = lib.fakeSha256;
+  amd-pstateHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  amd-tlb-broadcastHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  asusHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  bbr3Hash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  cachyHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  cryptoHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  fixesHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  t2Hash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  zstdHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  zotac-zoneHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
 
   boreHash = "sha256-uhuso01DVwuWO26z9Q9xf4TfGSmZOXkqZi4AvIjHCUY=";
 in {
@@ -38,7 +38,7 @@ in {
   amd-tlb-broadcast = fetchpatch {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0002-amd-tlb-broadcast.pa";
-    hash = amd-tlb-broadcasttchHash;
+    hash = amd-tlb-broadcastHash;
   };
   asus = fetchpatch {
     url =
