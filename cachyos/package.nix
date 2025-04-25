@@ -29,65 +29,65 @@ in buildLinux {
 
   kernelPatches = [
 
-    # {
-    #   name = "cachyos-base-all";
-    #   patch = sources.cachyos-base-all;
-    # }
+    {
+      name = "cachyos-base-all";
+      patch = sources.cachyos-base-all;
+    }
 
     {
       name = "bore-cachy";
       patch = sources.bore-cachy;
     }
 
-    {
-      name = "amd-pstate";
-      patch = sources.amd-pstate;
-    }
-
-    {
-      name = "amd-tlb-broadcast";
-      patch = sources.amd-tlb-broadcast;
-    }
-
-    {
-      name = "asus";
-      patch = sources.asus;
-    }
-
-    {
-      name = "bbr3";
-      patch = sources.bbr3;
-    }
-
-    {
-      name = "cachy";
-      patch = sources.cachy;
-    }
-
-    {
-      name = "crypto";
-      patch = sources.crypto;
-    }
-
-    {
-      name = "fixes";
-      patch = sources.fixes;
-    }
-
-    {
-      name = "t2";
-      patch = sources.t2;
-    }
-
-    {
-      name = "zstd";
-      patch = sources.zstd;
-    }
-
-    {
-      name = "zotac-zone";
-      patch = sources.zotac-zone;
-    }
+    # {
+    #   name = "amd-pstate";
+    #   patch = sources.amd-pstate;
+    # }
+    #
+    # {
+    #   name = "amd-tlb-broadcast";
+    #   patch = sources.amd-tlb-broadcast;
+    # }
+    #
+    # {
+    #   name = "asus";
+    #   patch = sources.asus;
+    # }
+    #
+    # {
+    #   name = "bbr3";
+    #   patch = sources.bbr3;
+    # }
+    #
+    # {
+    #   name = "cachy";
+    #   patch = sources.cachy;
+    # }
+    #
+    # {
+    #   name = "crypto";
+    #   patch = sources.crypto;
+    # }
+    #
+    # {
+    #   name = "fixes";
+    #   patch = sources.fixes;
+    # }
+    #
+    # {
+    #   name = "t2";
+    #   patch = sources.t2;
+    # }
+    #
+    # {
+    #   name = "zstd";
+    #   patch = sources.zstd;
+    # }
+    #
+    # {
+    #   name = "zotac-zone";
+    #   patch = sources.zotac-zone;
+    # }
   ];
 
   meta.broken = !stdenvNoCC.hostPlatform.isx86_64;
