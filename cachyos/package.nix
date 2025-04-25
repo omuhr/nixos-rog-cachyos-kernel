@@ -29,10 +29,10 @@ in buildLinux {
 
   kernelPatches = [
 
-    {
-      name = "cachyos-base-all";
-      patch = sources.cachyos-base-all;
-    }
+    # {
+    #   name = "cachyos-base-all";
+    #   patch = sources.cachyos-base-all;
+    # }
 
     {
       name = "bore-cachy";
