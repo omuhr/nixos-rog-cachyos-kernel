@@ -29,29 +29,29 @@ in buildLinux {
 
   kernelPatches = [
 
+    # {
+    #   name = "cachyos-base-all";
+    #   patch = sources.cachyos-base-all;
+    # }
+
     {
-      name = "cachyos-base-all";
-      patch = sources.cachyos-base-all;
+      name = "amd-pstate";
+      patch = sources.amd-pstate;
+    }
+
+    {
+      name = "amd-tlb-broadcast";
+      patch = sources.amd-tlb-broadcast;
+    }
+
+    {
+      name = "asus";
+      patch = sources.asus;
     }
 
     {
       name = "bore-cachy";
       patch = sources.bore-cachy;
-    }
-
-    # {
-    #   name = "amd-pstate";
-    #   patch = sources.amd-pstate;
-    # }
-    #
-    # {
-    #   name = "amd-tlb-broadcast";
-    #   patch = sources.amd-tlb-broadcast;
-    # }
-
-    {
-      name = "asus";
-      patch = sources.asus;
     }
 
     # {
