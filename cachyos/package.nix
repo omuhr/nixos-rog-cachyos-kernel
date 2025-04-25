@@ -48,12 +48,12 @@ in buildLinux {
     #   name = "amd-tlb-broadcast";
     #   patch = sources.amd-tlb-broadcast;
     # }
-    #
-    # {
-    #   name = "asus";
-    #   patch = sources.asus;
-    # }
-    #
+
+    {
+      name = "asus";
+      patch = sources.asus;
+    }
+
     # {
     #   name = "bbr3";
     #   patch = sources.bbr3;
