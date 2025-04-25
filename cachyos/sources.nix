@@ -6,7 +6,7 @@ let
 
   cachyosCommit = "4df02d6037a2ea9ac1dc67f80db59798117694f1";
 
-  # cachyosHash = "sha256-WbACCKuU9+Pc8Tnb2xVmDrdWmTTG4/x59flzWVdzrB8=";
+  cachyosHash = "sha256-4BHkAv6yd+bAxloiFFDWxTDgjvoaLbF8Fa8EKV5Sci8=";
 
   amd-pstateHash = "sha256-rwDe33RDqBTwyrWT60odwXJheb0yMDG/AOAp0bT9keo=";
   amd-tlb-broadcastHash = "sha256-B0fwTLBFYcMEiVWuot6OuFEBj9vqdOqVxau9IPqeyCE=";
@@ -33,7 +33,7 @@ in {
   cachyos-base-all = fetchpatch {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/all/0001-cachyos-base-all.patch";
-    hash = boreHash;
+    hash = cachyosHash;
   };
 
   bore-cachy = fetchpatch {
