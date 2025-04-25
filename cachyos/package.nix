@@ -35,6 +35,11 @@ in buildLinux {
     # }
 
     {
+      name = "bore-cachy";
+      patch = sources.bore-cachy;
+    }
+
+    {
       name = "amd-pstate";
       patch = sources.amd-pstate;
     }
@@ -82,11 +87,6 @@ in buildLinux {
     {
       name = "zotac-zone";
       patch = sources.zotac-zone;
-    }
-
-    {
-      name = "bore-cachy";
-      patch = sources.bore-cachy;
     }
   ];
 

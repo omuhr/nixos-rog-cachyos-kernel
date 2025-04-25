@@ -30,6 +30,12 @@ in {
     hash = linuxHash;
   };
 
+  bore-cachy = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/sched/0001-bore-cachy.patch";
+    hash = boreHash;
+  };
+
   amd-pstate = fetchpatch {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0001-amd-pstate.patch";
@@ -79,11 +85,5 @@ in {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/0010-zotac-zone.patch";
     hash = zotac-zoneHash;
-  };
-
-  bore-cachy = fetchpatch {
-    url =
-      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/sched/0001-bore-cachy.patch";
-    hash = boreHash;
   };
 }
