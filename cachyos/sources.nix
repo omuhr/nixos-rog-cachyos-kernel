@@ -30,6 +30,12 @@ in {
     hash = linuxHash;
   };
 
+  cachyos-base-all = fetchpatch {
+    url =
+      "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/all/0001-cachyos-base-all.patch";
+    hash = boreHash;
+  };
+
   bore-cachy = fetchpatch {
     url =
       "https://raw.githubusercontent.com/flukejones/cachyos-kernel-patches/${cachyosCommit}/${linuxMinorVersion}/sched/0001-bore-cachy.patch";
